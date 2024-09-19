@@ -1,7 +1,7 @@
 # High-speed-camera-measurement-based-on-compressed-sensing_upload
 
 ## Requirements
-Matlab 2019a or newer. Older visions may be sufficient but have not been tested.
+Matlab 2022a or newer. Older visions may be sufficient but have not been tested.
 
 Install the CVX toolbox. CVX Home Page: http://cvxr.com/cvx/  or you can click [here](http://cvxr.com/cvx/download/) to download the toolbox.
 
