@@ -1,4 +1,4 @@
-# High-speed-camera-measurement-based-on-compressed-sensing_upload
+# High-frequency_sub-pixel_vibration_measurement_based_on_compressed_sensing
 
 ## Requirements
 Matlab 2022b or newer. Older visions may be sufficient but have not been tested.
