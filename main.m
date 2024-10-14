@@ -21,10 +21,12 @@ A = Psi(index,:);
 %% Recover Vibration Signals from Sampled Images
 S = getmotionsignal(dataDir,index);
 f2 = S.aligned_horizontal; % Calculate the Horizontal Vibration Signal
-f2 = S.aligned_vertical; % Calculate the Vertical Vibration Signal
+% f2 = S.aligned_vertical; % Calculate the Vertical Vibration Signal
 
 %% Recover Vibration Signals by Compression Sensing
 cvx_begin quiet % Convex Optimization Toolbox,CVX
+['CVX has started !']
+['This may take several minutes !']
     variable x(n) complex;
     minimize( norm(x,1) );
     subject to
@@ -33,11 +35,13 @@ cvx_begin quiet % Convex Optimization Toolbox,CVX
 cvx_end
 ['CVX finished !']
 
-x3=ADMM_L1_reconstruct(1e3*A,1e3*f2,100,10,100); % Alternating Direction Method of Multipliers,ADMM
+['ADMM has started !']
+['This may take several minutes !']
+x3=ADMM_L1_reconstruct(1e3*A,1e3*f2); % Alternating Direction Method of Multipliers,ADMM
 ['ADMM finished !']
 
 S_orgin.alignedout = fft(S_orgin.aligned_horizontal); % Ground Truth of Horizontal Vibration Signal
-S_orgin.alignedout = fft(S_orgin.aligned_vertical); % Ground Truth of Vertical Vibration Signal
+% S_orgin.alignedout = fft(S_orgin.aligned_vertical); % Ground Truth of Vertical Vibration Signal
 x4 = S_orgin.alignedout;
 
 %% Plot Signals in Frequency Dimension
@@ -51,7 +55,7 @@ plot([1 499], [0.1 0.1],'--k');
 yticks([0 0.1 0.5 1]);
 xlabel('Frequency(Hz)');ylabel('Amplitude (Normalized)')
 set(gca,'FontName','Times New Roman');
-legend('CVX','ADMM','GT');
+legend('HSVM-CS(CVX)','HSVM-CS(ADMM)','Ground Truth');
 box off     
 ax1 = axes('Position',get(gca,'Position'),'XAxisLocation','top',...
     'YAxisLocation','right','Color','none','XColor','k','YColor','k');  
@@ -69,7 +73,7 @@ plot(num,mapminmax(GTout(1:lengthout)',0,1),'color',[0.9290 0.6940 0.1250])
 yticks([0 0.5 1]); 
 xlabel('Time(ms)');ylabel('Amplitude (Normalized)')
 set(gca,'FontName','Times New Roman');
-legend('CVX','ADMM','GT');
+legend('HSVM-CS(CVX)','HSVM-CS(ADMM)','Ground Truth');
 box off     
 ax1 = axes('Position',get(gca,'Position'),'XAxisLocation','top',...
     'YAxisLocation','right','Color','none','XColor','k','YColor','k');
