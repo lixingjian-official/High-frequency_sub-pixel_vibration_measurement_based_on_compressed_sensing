@@ -1,4 +1,7 @@
-function x=ADMM_L1_reconstruct(A,b,delta,lambda,iteratMax)
+function x=ADMM_L1_reconstruct(A,b)
+    delta = 100;
+    lambda = 10;
+    iteratMax =100;
     [~,N]=size(A);
     e = ones(N,1);
     D_ = spdiags([e -e], 0:1, N,N);
