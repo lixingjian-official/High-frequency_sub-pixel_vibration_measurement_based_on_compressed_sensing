@@ -80,7 +80,7 @@ ax1 = axes('Position',get(gca,'Position'),'XAxisLocation','top',...
 set(ax1,'XTick', [],'YTick', []);   
 hold off
 
-%% Calculate MSE
+%% Calculate MSE, PSNR
 CVXout = mapminmax(abs(ifft(x))',0,1);
 ADMMout = mapminmax(abs(ifft(x3))',0,1);
 GTout = mapminmax(abs(ifft(x4))',0,1);
