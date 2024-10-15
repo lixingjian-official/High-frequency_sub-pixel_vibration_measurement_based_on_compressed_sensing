@@ -84,7 +84,7 @@ hold off
 CVXout = mapminmax(abs(ifft(x))',0,1);
 ADMMout = mapminmax(abs(ifft(x3))',0,1);
 GTout = mapminmax(abs(ifft(x4))',0,1);
-mse_HSVM_CS(CVX) = mse(GTout-CVXout)
-mse_HSVM_CS(ADMM) = mse(GTout-ADMMout)
-psnr_HSVM_CS(CVX) = 10*log10(1/outmse_HSVM_CS(CVX))
-psnr_HSVM_CS(ADMM) = 10*log10(1/outmse_HSVM_CS(ADMM))
+mse_HSVM_CS_CVX = mse(GTout-CVXout)
+mse_HSVM_CS_ADMM = mse(GTout-ADMMout)
+psnr_HSVM_CS_CVX = 10*log10(1/mse_HSVM_CS_CVX)
+psnr_HSVM_CS_ADMM = 10*log10(1/mse_HSVM_CS_ADMM)
