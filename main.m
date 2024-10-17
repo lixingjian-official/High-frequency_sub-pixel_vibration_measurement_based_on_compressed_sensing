@@ -63,7 +63,7 @@ hold off
 
 %% Plot Signals in Time Dimension
 lengthout = 100;num = 1:lengthout;
-CVXout = real(ifft(x));ADMMout = real(ifft(x3));GTout = real(ifft(S_orgin.alignedout));
+CVXout = real(ifft(x));ADMMout = real(ifft(x3));GTout = real(ifft(x4));
 
 figure('Units','centimeter','Position',[10 5 18 6]);
 plot(num,mapminmax(CVXout(1:lengthout)',0,1), 'color',[0 0.4470 0.7410]);hold on 
