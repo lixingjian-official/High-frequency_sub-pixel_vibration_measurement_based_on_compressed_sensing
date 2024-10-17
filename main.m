@@ -49,8 +49,7 @@ end_num = n/2-1;num = 0:end_num;
 figure('Units','centimeter','Position',[10 14 18 6]);
 plot(num(2:end),abs(x(2:end_num+1))/max(abs(x(2:end_num+1))),'color',[0 0.4470 0.7410]);hold on 
 plot(num(2:end),abs(x3(2:end_num+1))/max(abs(x3(2:end_num+1))),'color',[0.8500 0.3250 0.0980]);hold on 
-plot(num(2:end),abs(S_orgin.alignedout(2:end_num+1))/max(abs(S_orgin.alignedout(2:end_num+1))), ...
-    'color',[0.9290 0.6940 0.1250]);hold on 
+plot(num(2:end),abs(x4(2:end_num+1))/max(abs(x4(2:end_num+1))),'color',[0.9290 0.6940 0.1250]);hold on 
 plot([1 499], [0.1 0.1],'--k');
 yticks([0 0.1 0.5 1]);
 xlabel('Frequency(Hz)');ylabel('Amplitude (Normalized)')
