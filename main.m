@@ -20,8 +20,8 @@ A = Psi(index,:);
 
 %% Recover Vibration Signals from Sampled Images
 S = getmotionsignal(dataDir,index);
-f2 = S.aligned_horizontal; % Calculate the Horizontal Vibration Signal
-% f2 = S.aligned_vertical; % Calculate the Vertical Vibration Signal
+f2 = S.horizontal; % Calculate the Horizontal Vibration Signal
+% f2 = S.vertical; % Calculate the Vertical Vibration Signal
 
 %% Recover Vibration Signals by Compression Sensing
 cvx_begin quiet % Convex Optimization Toolbox,CVX
@@ -40,9 +40,9 @@ cvx_end
 x3=ADMM_L1_reconstruct(1e3*A,1e3*f2); % Alternating Direction Method of Multipliers,ADMM
 ['ADMM finished !']
 
-S_orgin.alignedout = fft(S_orgin.aligned_horizontal); % Ground Truth of Horizontal Vibration Signal
-% S_orgin.alignedout = fft(S_orgin.aligned_vertical); % Ground Truth of Vertical Vibration Signal
-x4 = S_orgin.alignedout;
+S_orgin.out = fft(S_orgin.horizontal); % Ground Truth of Horizontal Vibration Signal
+% S_orgin.out = fft(S_orgin.vertical); % Ground Truth of Vertical Vibration Signal
+x4 = S_orgin.out;
 
 %% Plot Signals in Frequency Dimension
 end_num = n/2-1;num = 0:end_num;
