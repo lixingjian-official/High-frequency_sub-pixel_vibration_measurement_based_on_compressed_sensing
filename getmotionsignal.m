@@ -85,7 +85,7 @@ for q=1:nScales
 
     end
 end
-S.aligned_horizontal = sigOut_horizontal;
-S.aligned_vertical = sigOut_vertical;
-S.averageNoAlignment = mean(reshape(double(signalffs),nScales*nOrients,nF)).';
+S.horizontal = sigOut_horizontal;
+S.vertical = sigOut_vertical;
+S.average = mean(reshape(double(signalffs),nScales*nOrients,nF)).';
 end
